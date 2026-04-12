@@ -8,13 +8,32 @@
     <link rel="shortcut icon" href="icon/Icon.png" type="image/png">
 </head>
 <body>
+    <noscript>
+        <meta http-equiv="refresh" content="0; url=no-js.html">
+    </noscript>
+
     <nav>
-        <a href="#Inf" class="nav-link">Главная</a>
-        <a href="#VPN-Links" class="nav-link">Ссылки, связанные с VPN</a>
-        <a href="#Happ" class="nav-link">Happ</a>
-        <a href="#Tg-proxy" class="nav-link">Прокси для телеграмма</a>
-        <a href="#VPN-30m" class="nav-link">Ключ VPN на 30 минут</a>
+        <button class="menu-toggle" aria-expanded="false" aria-label="Открыть меню">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <div class="nav-links" aria-hidden="true">
+            <a href="#Inf" class="nav-link">Главная</a>
+            <a href="#VPN-Links" class="nav-link">Ссылки, связанные с VPN</a>
+            <a href="#Happ" class="nav-link">Happ</a>
+            <a href="#Tg-proxy" class="nav-link">Прокси для телеграмма</a>
+            <a href="#VPN-30m" class="nav-link">Ключ VPN на 30 минут</a>
+        </div>
     </nav>
+    <div class="overlay" aria-hidden="true">
+            <button class="overlay-close" aria-label="Закрыть меню">×</button>
+            <a href="#Inf" class="nav-link-s">Главная</a>
+            <a href="#VPN-Links" class="nav-link-s">Ссылки, связанные с VPN</a>
+            <a href="#Happ" class="nav-link-s">Happ</a>
+            <a href="#Tg-proxy" class="nav-link-s">Прокси для телеграмма</a>
+            <a href="#VPN-30m" class="nav-link-s">Ключ VPN на 30 минут</a>
+    </div>
     <section class="Main-inf" id="Inf">
         <div class="inf-d">
         <h1>Информация про Official VPN</h1>
@@ -24,34 +43,94 @@
     <section class="Main-inf" id="VPN-Links">
         <div class="inf-d">
         <h1>Ссылки, связанные с VPN</h1>
-        <p>1. <a href="https://t.me/official_vpnbot" target="_blank" rel="noopener noreferrer">Основной телеграмм-бот Official VPN. Ссылка на эту страницу: https://t.me/official_vpnbot</a></p>
+        <p>1. <a href="https://t.me/official_vpnbot" target="_blank" rel="noopener noreferrer">Основной телеграмм-бот Official VPN. <br>
+            Ссылка на эту страницу: <br>https://t.me/official_vpnbot</a></p>
             <br>
             <hr>
             <br>
-        <p>2. <a href="https://t.me/OfficialVpnBot" target="_blank" rel="noopener noreferrer">Основной телеграмм-канал Official VPN. Ссылка на эту страницу: https://t.me/OfficialVpnBot</a></p>
+        <p>2. <a href="https://t.me/OfficialVpnBot" target="_blank" rel="noopener noreferrer">Основной телеграмм-канал Official VPN. <br>
+            Ссылка на эту страницу: <br>https://t.me/OfficialVpnBot</a></p>
             <br>
             <hr>
             <br>
-        <p>3. <a href="https://t.me/help_official_vpnbot" target="_blank" rel="noopener noreferrer">Основной телеграмм-чат поддержки Official VPN. Ссылка на эту страницу: https://t.me/help_official_vpnbot</a></p>
+        <p>3. <a href="https://t.me/help_official_vpnbot" target="_blank" rel="noopener noreferrer">Основной телеграмм-чат поддержки Official VPN. <br>
+            Ссылка на эту страницу: <br>https://t.me/help_official_vpnbot</a></p>
         </div>
     </section>
     <section class="Main-inf" id="Happ">
         <div class="inf-d">
         <h1>Ссылка на установку Happ</h1>
-        <p><a href="https://www.happ.su/main/ru" target="_blank" rel="noopener noreferrer">Ссылка на эту страницу: https://www.happ.su/main/ru</a></p>
+        <p><a href="https://www.happ.su/main/ru" target="_blank" rel="noopener noreferrer">Ссылка на эту страницу: <br> 
+            https://www.happ.su/main/ru</a></p>
         </div>
     </section>
     <section class="Main-inf" id="Tg-proxy">
         <div class="inf-d">
         <h1>Прокси для телеграмма. Все инструкции и подключения</h1>
-        <p><a href="https://ofmtbot.com" target="_blank" rel="noopener noreferrer">Ссылка на эту страницу: https://ofmtbot.com</a></p>
+        <p><a href="https://ofmtbot.com" target="_blank" rel="noopener noreferrer">Ссылка на эту страницу: <br>
+            https://ofmtbot.com</a></p>
         </div>
     </section>
     <section class="Main-inf" id="VPN-30m">
         <div class="inf-d">
         <h1>Ключ VPN на 30 минут</h1>
-        <p><a href="https://30m-keys.com" target="_blank" rel="noopener noreferrer">Ссылка на эту страницу: https://30m-keys.com</a></p>
+        <p><a href="https://30m-keys.com" target="_blank" rel="noopener noreferrer">Ссылка на эту страницу: <br>
+            https://30m-keys.com</a></p>
         </div>
     </section>
+    <script>
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navLinks = document.querySelector('.nav-links');
+        const overlay = document.querySelector('.overlay');
+        const overlayClose = document.querySelector('.overlay-close');
+        const navItems = document.querySelectorAll('.nav-link');
+
+        const openMenu = () => {
+            navLinks.classList.add('open');
+            overlay.classList.add('visible');
+            menuToggle.setAttribute('aria-expanded', 'true');
+            navLinks.setAttribute('aria-hidden', 'false');
+        };
+
+        const closeMenu = () => {
+            navLinks.classList.remove('open');
+            overlay.classList.remove('visible');
+            menuToggle.setAttribute('aria-expanded', 'false');
+            navLinks.setAttribute('aria-hidden', 'true');
+        };
+
+        menuToggle.addEventListener('click', () => {
+            if (navLinks.classList.contains('open')) {
+                closeMenu();
+            } else {
+                openMenu();
+            }
+        });
+
+        overlay.addEventListener('click', closeMenu);
+        overlayClose.addEventListener('click', event => {
+            event.stopPropagation();
+            closeMenu();
+        });
+
+        navItems.forEach(link => {
+            link.addEventListener('click', event => {
+                if (window.getComputedStyle(menuToggle).display === 'none') {
+                    return;
+                }
+
+                event.preventDefault();
+                const targetId = link.getAttribute('href').substring(1);
+                const targetElement = document.getElementById(targetId);
+                closeMenu();
+
+                if (targetElement) {
+                    setTimeout(() => {
+                        targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }, 150);
+                }
+            });
+        });
+    </script>
 </body>
 </html>
