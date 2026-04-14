@@ -17,7 +17,7 @@
             <span></span>
             <span></span>
         </button>
-        <div class="nav-links" aria-hidden="true">
+        <div class="nav-links">
             <a href="#Inf" class="nav-link">Главная</a>
             <a href="#VPN-Links" class="nav-link">Ссылки, связанные с VPN</a>
             <a href="#Happ" class="nav-link">Happ</a>
@@ -79,20 +79,18 @@
     </section>
     <script>
         const menuToggle = document.querySelector('.menu-toggle');
-        const navLinks = document.querySelector('.nav-links');
+        const navLinks = document.querySelector('.nav-link-s');
         const overlay = document.querySelector('.overlay');
         const overlayClose = document.querySelector('.overlay-close');
         const navItems = document.querySelectorAll('.nav-link');
 
         const openMenu = () => {
-            navLinks.classList.add('open');
             overlay.classList.add('visible');
             menuToggle.setAttribute('aria-expanded', 'true');
             navLinks.setAttribute('aria-hidden', 'false');
         };
 
         const closeMenu = () => {
-            navLinks.classList.remove('open');
             overlay.classList.remove('visible');
             menuToggle.setAttribute('aria-expanded', 'false');
             navLinks.setAttribute('aria-hidden', 'true');
