@@ -181,6 +181,19 @@ a:hover {
   transform: translateY(-1px);
 }
 
+.att-b{
+  border: 2px solid;
+  border-radius: 10px;
+}
+
+.att-p{
+  color: var(--muted);
+  font-size: 1.05rem;
+  line-height: 1.8;
+  margin: 10px;
+  justify-self: center
+}
+
 section.Main-inf {
   width: min(100%, 940px);
   padding: 40px;
